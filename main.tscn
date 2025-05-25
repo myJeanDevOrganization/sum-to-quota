@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=4 uid="uid://bxk542eu3wcx3"]
+
+[ext_resource type="Shader" uid="uid://xw2prctc3pnb" path="res://crt.gdshader" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b2wcshfwj6n05" path="res://number_grid/number_layer.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cdhlxvfi5u8r1" path="res://Selector.tscn" id="4_1bvp3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/scanline_count = 120.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 9
+anchor_mode = 0
+
+[node name="Shaders" type="CanvasLayer" parent="."]
+
+[node name="CRTShader" type="ColorRect" parent="Shaders"]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileMapLayer" parent="." instance=ExtResource("3_h2yge")]
+tile_map_data = PackedByteArray("AAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAIAAkAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAQAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAMAAsAAQAAAAAAAAAMAAoAAQAAAAAAAAAMAAkAAQAAAAAAAAAJAA0AAQAAAAAAAAAIAA0AAQAAAAAAAAAIAAwAAQAAAAAAAAAJAAwAAQAAAAAAAAAKAA0AAQAAAAAAAAAJAAkAAQAAAAAAAAAJAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAIAAsAAQAAAAAAAAAJAAsAAQAAAAAAAAAJAAgAAQAAAAAAAAALAAMAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAMAAgAAQAAAAAAAAA=")
+
+[node name="Selector" parent="." instance=ExtResource("4_1bvp3")]

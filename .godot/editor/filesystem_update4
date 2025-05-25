@@ -1,0 +1,12 @@
+res://main.tscn
+res://crt.gdshader
+res://number_grid.tscn
+res://number_grid.gd
+res://tile_map_layer.tscn
+res://tile_map_layer.gd
+res://number_grid/number_layer.tscn
+res://number_grid/number_layer.gd
+res://Selector.tscn
+res://number_grid/number.tscn
+res://number_grid/number.gd
+res://selector.gd
