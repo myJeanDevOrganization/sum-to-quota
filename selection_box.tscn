@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dlolfiku55stn"]
+
+[node name="SelectionBox" type="Polygon2D"]
+z_index = 4
+polygon = PackedVector2Array(1, 0, 50, 0, 51, -84, 1, -84)

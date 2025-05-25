@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="sum-to-quota"
+run/main_scene="uid://bxk542eu3wcx3"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2160
+window/size/viewport_height=2160
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.139778, 0.185629, 0.257638, 1)
