@@ -3,7 +3,7 @@ A game where you select boxes of numbers to sum to a quota.
 
 # Components  
 
-MapLayerSaveResource type (this will be a saved map layer)  
++ MAP_LAYER_SAVES (an array of map layer packed scenes)
 
 + MENU: MAIN  
   - Button: Start  
