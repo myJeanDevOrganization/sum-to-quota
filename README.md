@@ -4,6 +4,13 @@ A game where you select boxes of numbers to sum to a quota.
 # Components  
 
 + MAP_LAYER_SAVES (an array of map layer packed scenes)
+```
+const MAP_LAYER_SAVES: Array[PackedScene] = [
+	preload("res://mapLayer0.tscn"),
+  preload("res://mapLayer1.tscn"),
+  ...
+]
+```
 
 + MENU: MAIN  
   - Button: Start  
