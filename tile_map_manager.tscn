@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=4 uid="uid://biypfv7qp85bj"]
+
+[ext_resource type="Script" uid="uid://bddt7gva7jxju" path="res://tile_map_manager.gd" id="1_nid02"]
+[ext_resource type="Script" uid="uid://db5kwr2nn3jbh" path="res://selector_visual.gd" id="2_jy0k8"]
+[ext_resource type="TileSet" uid="uid://dsfte0yw6wls2" path="res://number_grid/number_tile_set.tres" id="3_1jhri"]
+
+[node name="TileMapManager" type="Node2D"]
+script = ExtResource("1_nid02")
+
+[node name="CollectionBetweenTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="PopulateTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[node name="SelectorVisual" type="Node2D" parent="."]
+script = ExtResource("2_jy0k8")
+
+[node name="Polygon2D" type="Polygon2D" parent="SelectorVisual"]
+z_index = 4
+polygon = PackedVector2Array(-10, -7, 0, 7, 9, -7)
+
+[node name="SelectionBoxtmp" type="Polygon2D" parent="SelectorVisual"]
+z_index = 4
+color = Color(0, 1, 1, 0.533333)
+polygon = PackedVector2Array(1, 0, 50, 0, 51, -84, 1, -84)
+
+[node name="SelectionBox" type="Line2D" parent="SelectorVisual"]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAoAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAgAAQAAAAAAAAAJAAoAAQAAAAAAAAAMAAYAAQAAAAAAAAANAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAQAAAAAAAAADAAkAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAgAAQAAAAAAAAAHAAoAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAANAAcAAQAAAAAAAAANAAgAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAYAAQAAAAAAAAA=")
+tile_set = ExtResource("3_1jhri")
