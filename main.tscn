@@ -1,30 +1,99 @@
-[gd_scene load_steps=5 format=4 uid="uid://bxk542eu3wcx3"]
+[gd_scene load_steps=6 format=3 uid="uid://bxk542eu3wcx3"]
 
+[ext_resource type="Script" uid="uid://bx27ylmx7wx3y" path="res://level_manager.gd" id="1_1bvp3"]
 [ext_resource type="Shader" uid="uid://xw2prctc3pnb" path="res://crt.gdshader" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b2wcshfwj6n05" path="res://number_grid/number_layer.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cdhlxvfi5u8r1" path="res://Selector.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://biypfv7qp85bj" path="res://tile_map_manager.tscn" id="4_lquwl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_ig7tw")
 shader_parameter/scanline_count = 120.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0, 0, 0, 0.482353)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="Main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = 9
-anchor_mode = 0
+[node name="LevelManager" type="Node" parent="." groups=["levelManager"]]
+script = ExtResource("1_1bvp3")
 
-[node name="Shaders" type="CanvasLayer" parent="."]
+[node name="Overlay" type="CanvasLayer" parent="."]
 
-[node name="CRTShader" type="ColorRect" parent="Shaders"]
-material = SubResource("ShaderMaterial_0xm2m")
+[node name="Shaders" type="Control" parent="Overlay"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TileMapLayer" parent="." instance=ExtResource("3_h2yge")]
-tile_map_data = PackedByteArray("AAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAIAAkAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAQAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAMAAsAAQAAAAAAAAAMAAoAAQAAAAAAAAAMAAkAAQAAAAAAAAAJAA0AAQAAAAAAAAAIAA0AAQAAAAAAAAAIAAwAAQAAAAAAAAAJAAwAAQAAAAAAAAAKAA0AAQAAAAAAAAAJAAkAAQAAAAAAAAAJAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAIAAsAAQAAAAAAAAAJAAsAAQAAAAAAAAAJAAgAAQAAAAAAAAALAAMAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAMAAgAAQAAAAAAAAA=")
+[node name="CRTShader" type="ColorRect" parent="Overlay/Shaders"]
+material = SubResource("ShaderMaterial_0xm2m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Selector" parent="." instance=ExtResource("4_1bvp3")]
+[node name="UI" type="Control" parent="Overlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel3" type="Panel" parent="Overlay/UI"]
+layout_mode = 2
+offset_left = 914.0
+offset_top = -3.0
+offset_right = 1254.0
+offset_bottom = 237.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Score" type="RichTextLabel" parent="Overlay/UI/Panel3" groups=["scoreVisual"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]0[/center]"
+
+[node name="Panel2" type="Panel" parent="Overlay/UI"]
+layout_mode = 2
+offset_left = 914.0
+offset_top = 1873.0
+offset_right = 1254.0
+offset_bottom = 2113.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="QuotaVisual" type="RichTextLabel" parent="Overlay/UI/Panel2" groups=["quotaVisual"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]10[/center]"
+
+[node name="MainCamera2D" type="Camera2D" parent="." groups=["mainCamera"]]
+z_index = 9
+anchor_mode = 0
+
+[node name="TileMapManager" parent="." instance=ExtResource("4_lquwl")]
+
+[node name="CollectionPoint" type="Node2D" parent="." groups=["collectionPoint"]]
+position = Vector2(1127, 1994)

@@ -1,30 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2wcshfwj6n05"]
+[gd_scene load_steps=3 format=3 uid="uid://b2wcshfwj6n05"]
 
-[ext_resource type="Texture2D" uid="uid://dtr4oxqng5dos" path="res://number_grid/numbersAtlas.png" id="1_304ya"]
+[ext_resource type="TileSet" uid="uid://dsfte0yw6wls2" path="res://number_grid/number_tile_set.tres" id="1_304ya"]
 [ext_resource type="Script" uid="uid://8hm0yxagg1pc" path="res://number_grid/number_layer.gd" id="1_ltm2n"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w20ag"]
-texture = ExtResource("1_304ya")
-texture_region_size = Vector2i(125, 125)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_a72x8"]
-tile_size = Vector2i(125, 125)
-custom_data_layer_0/name = "value"
-custom_data_layer_0/type = 2
-sources/1 = SubResource("TileSetAtlasSource_w20ag")
-
 [node name="TileMapLayer" type="TileMapLayer"]
-tile_set = SubResource("TileSet_a72x8")
+tile_set = ExtResource("1_304ya")
 script = ExtResource("1_ltm2n")
 
 [node name="PopulateTimer" type="Timer" parent="."]
