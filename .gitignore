@@ -1,0 +1,23 @@
+# Godot 4+ core ignores (from template)
+.godot/          # Editor workspace, cache, and user settings
+.nomedia         # Prevent Android media scanning
+.import/         # Asset import cache (regenerated automatically)
+export_credentials.cfg  # Sensitive credentials (NEVER commit)
+*.translation    # Auto-generated translations
+
+# Mono-specific ignores (from template)
+.mono/
+data_*/
+mono_crash.*.json
+
+# macOS-specific ignores (ADD THESE)
+.DS_Store        # Finder metadata files
+.AppleDouble     # Resource fork data
+.LSOverride      # Launch Services override
+.Spotlight-V*    # Spotlight indexes
+.Trashes         # Trash folder data
+
+# Cross-platform system files (recommended)
+*~               # Backup files
+Thumbs.db        # Windows thumbnail cache
+[Dd]esktop.ini   # Windows folder customization
